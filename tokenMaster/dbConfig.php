@@ -8,6 +8,7 @@ session_start();
     // $servername = "localhost";
 
     // mysql://bbccdc22c38bf2:acb489fe@us-cdbr-east-05.cleardb.net/heroku_a661fce75e516e7?reconnect=true
+    //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
 
     $db = 'heroku_a661fce75e516e7';
     $dbuser = 'bbccdc22c38bf2';
