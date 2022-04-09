@@ -18,7 +18,7 @@
         <meta name="description" content="" />
         <meta name="author" content="" />
         <title>::Welcome to Admin</title>
-        <link href="styles.css" rel="stylesheet" />
+        <link href="https://cdn.jsdelivr.net/gh/iamdyt/eduzoft/tokenMaster/css/styles.css" rel="stylesheet" />
         <!-- <script src="js/jquery-2.1.4.min.js" crossorigin="anonymous"></script> -->
         <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" crossorigin="anonymous"> -->
         <!-- <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous" /> -->
