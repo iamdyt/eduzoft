@@ -3,10 +3,15 @@ date_default_timezone_set("Asia/Calcutta");   //India time (GMT+5:30)
 header('Access-Control-Allow-Origin: *');
 header('Content-Type: application/json');
 
-    $dbname = 'myedusoft_usersAccess';
-    $username = 'myedusoft_usersAccess';
-    $password = 'nDp@xlrdmno2q';
-    $servername = "localhost";
+    // $dbname = 'myedusoft_usersAccess';
+    // $username = 'myedusoft_usersAccess';
+    // $password = 'nDp@xlrdmno2q';
+    // $servername = "localhost";
+
+    $dbname = 'heroku_a661fce75e516e7';
+    $username = 'bbccdc22c38bf2';
+    $password = 'acb489fe';
+    $servername = "us-cdbr-east-05.cleardb.net";
     // echo "hiii-1";
     $results = [ 'status' => false, 'message' => 'Please try again' ];
     $conn = new mysqli($servername, $username, $password, $dbname);
