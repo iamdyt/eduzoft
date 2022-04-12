@@ -2,12 +2,19 @@
 session_start();
 
 
-    // $db = 'toolkit';
-    // $dbuser = 'root';
-    // $dbpass = '';
+    // $db = 'myedusoft_usersAccess';
+    // $dbuser = 'myedusoft_usersAccess';
+    // $dbpass = 'nDp@xlrdmno2q';
+    // $servername = "localhost";
+    
+    
+    // $db = 'activsd6_whatsapptoolkit';
+    // $dbuser = 'activsd6_whatsapptoolkit';
+    // $dbpass = 'H@@R30&TShrS';
     // $servername = "localhost";
 
-    // mysql://bbccdc22c38bf2:acb489fe@us-cdbr-east-05.cleardb.net/heroku_a661fce75e516e7?reconnect=true
+
+        // mysql://bbccdc22c38bf2:acb489fe@us-cdbr-east-05.cleardb.net/heroku_a661fce75e516e7?reconnect=true
     //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
 
     $db = 'heroku_a661fce75e516e7';

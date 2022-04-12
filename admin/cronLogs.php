@@ -4,6 +4,10 @@
     // $dbuser = "spreadaround";
     // $dbpass = "nDp@xlrdmno2q";
     // $db = "spread1d_waziper";
+
+        // mysql://bbccdc22c38bf2:acb489fe@us-cdbr-east-05.cleardb.net/heroku_a661fce75e516e7?reconnect=true
+    //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
+
     $db = 'heroku_a661fce75e516e7';
     $dbuser = 'bbccdc22c38bf2';
     $dbpass = 'acb489fe';
@@ -19,7 +23,8 @@
         <meta name="description" content="" />
         <meta name="author" content="" />
         <title>::Welcome to Admin</title>
-        <link href="css/styles.css" rel="stylesheet" />
+        <!-- <link href="css/styles.css" rel="stylesheet" /> -->
+        <link href="https://cdn.jsdelivr.net/gh/iamdyt/eduzoft/tokenMaster/css/styles.css" rel="stylesheet" />
         <link href="https://cdn.datatables.net/1.10.21/css/dataTables.bootstrap.min.css" rel="stylesheet" crossorigin="anonymous" />
         <script src="https://code.jquery.com/jquery-3.4.1.min.js" crossorigin="anonymous"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/js/all.min.js" crossorigin="anonymous"></script>

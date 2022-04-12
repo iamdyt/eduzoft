@@ -1,9 +1,10 @@
 <?php
     include 'dbConfig.php';
+    // print_r($_SESSION);
     if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true) {
         // echo "Welcome to the member's area, " . $_SESSION['username'] . "!";
     } else {
-        echo "Please log in first to see this page.";
+        //echo "Please log in first to see this page.";
         header("Location: index.php");
         exit();
     }
@@ -18,6 +19,7 @@
         <meta name="description" content="" />
         <meta name="author" content="" />
         <title>::Welcome to Admin</title>
+        <!-- <link href="css/styles.css" rel="stylesheet" /> -->
         <link href="https://cdn.jsdelivr.net/gh/iamdyt/eduzoft/tokenMaster/css/styles.css" rel="stylesheet" />
         <!-- <script src="js/jquery-2.1.4.min.js" crossorigin="anonymous"></script> -->
         <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" crossorigin="anonymous"> -->

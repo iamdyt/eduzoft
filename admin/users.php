@@ -1,4 +1,4 @@
-﻿<?php include 'includes/header.php'; ?>
+<?php include 'includes/header.php'; ?>
     <main>
         <div class="container-fluid" style="padding-top: 1%">
             <div class="row">
