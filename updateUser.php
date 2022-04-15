@@ -7,15 +7,9 @@ date_default_timezone_set("Asia/Calcutta");   //India time (GMT+5:30)
 header('Access-Control-Allow-Origin: *');
 header('Content-Type: application/json');
 
-    // $dbname = 'myedusoft_usersAccess';
-    // $username = 'myedusoft_usersAccess';
-    // $password = 'nDp@xlrdmno2q';
-    // $servername = "localhost";
-    
-    
-    // $dbname = 'activsd6_whatsapptoolkit';
-    // $username = 'activsd6_whatsapptoolkit';
-    // $password = 'H@@R30&TShrS';
+    // $dbname = 'newtoolkit';
+    // $username = 'root';
+    // $password = '';
     // $servername = "localhost";
 
         // mysql://bbccdc22c38bf2:acb489fe@us-cdbr-east-05.cleardb.net/heroku_a661fce75e516e7?reconnect=true

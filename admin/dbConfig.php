@@ -2,9 +2,9 @@
 session_start();
 
 
-    // $db = 'myedusoft_usersAccess';
-    // $dbuser = 'myedusoft_usersAccess';
-    // $dbpass = 'nDp@xlrdmno2q';
+    // $db = 'newtoolkit';
+    // $dbuser = 'root';
+    // $dbpass = '';
     // $servername = "localhost";
     
     
