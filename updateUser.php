@@ -15,9 +15,9 @@ header('Content-Type: application/json');
         // mysql://bbccdc22c38bf2:acb489fe@us-cdbr-east-05.cleardb.net/heroku_a661fce75e516e7?reconnect=true
     //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
 
-    $db = 'heroku_a661fce75e516e7';
-    $dbuser = 'bbccdc22c38bf2';
-    $dbpass = 'acb489fe';
+    $dbname = 'heroku_a661fce75e516e7';
+    $username = 'bbccdc22c38bf2';
+    $password = 'acb489fe';
     $servername = "us-cdbr-east-05.cleardb.net";
     
     // echo "hiii-1";
