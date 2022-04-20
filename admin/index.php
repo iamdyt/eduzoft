@@ -67,7 +67,8 @@ if ($_POST) {
                 <div class="row">
                     <div class="col-md-6 offset-md-3">
                         <div class="card card-body p-4 bg-white">
-                            
+                        <h4 class="font-size-18 text-muted mt-2 text-center">Welcome Back !</h4>
+                        <p class="mb-5 text-center">Sign in to continue</p>
                             <form id="loginPassForm" method="POST" class="">
                                 <div class="row">
                                             <div class="col-md-12">
@@ -81,7 +82,7 @@ if ($_POST) {
                                                 </div>
 
                                                 <div class="d-grid mt-4">
-                                                    <button class="btn btn-primary waves-effect waves-light" type="submit">Log In</button>
+                                                    <button class="btn btn-success  waves-effect waves-light" type="submit">Log In</button>
                                                 </div>
                                             </div>
                                 </div>

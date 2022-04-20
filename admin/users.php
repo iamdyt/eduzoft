@@ -13,17 +13,67 @@
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/iamdyt/eduzoft/css/styles.css">
         <?= require_once './includes/header.php' ?>
         <?= require_once './includes/sidebar.php' ?>
+        <?php  
 
-        <div class="main-content">
+            if ($_SESSION['role'] == 'super'){
+                $query = "SELECT * FROM checkUser";
+            } else {
+                $adder = intval($_SESSION['userId']);
+                $query = "SELECT * FROM checkUser WHERE added_by = '$adder'";
+            }
+            $result = $conn->query($query);
+
+        ?>
+
+        <div class="main-content" style="margin-top: -2rem;">
             <div class="page-content">
-                <div class="container-fluid" style="padding-top: 1%">
+                <div class="container-fluid">
+                <div class="row">
+                            <div class="col-md-6">
+                                <div class="card  border-start-4 border-primary border">
+                                    <div class="card-body">
+                                        <div class="d-flex text-muted">
+                                            <div class="flex-shrink-0 me-3 align-self-center">
+                                               
+                                            </div>
+                                            <div class="flex-grow-1 overflow-hidden">
+                                                <p class="mb-1">Total Users</p>
+                                                <h5 class="mb-3"><?=$result->num_rows ?></h5>
+                                                <!-- <p class="text-truncate mb-0"><span class="text-success me-2"> 0.02% <i class="ri-arrow-right-up-line align-bottom ms-1"></i></span> From previous</p> -->
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- end card-body -->
+                                </div>
+                                <!-- end card -->
+                            </div>
+
+                            <div class="col-md-6">
+                                <div class="card border-start-4 border-info border">
+                                    <div class="card-body">
+                                        <div class="d-flex text-muted">
+                                            <div class="flex-shrink-0 me-3 align-self-center">
+                                               
+                                            </div>
+                                            <div class="flex-grow-1 overflow-hidden">
+                                                <p class="mb-1">Total Tokens</p>
+                                                <h5 class="mb-3"><?=$result->num_rows ?></h5>
+                                                <!-- <p class="text-truncate mb-0"><span class="text-success me-2"> 0.02% <i class="ri-arrow-right-up-line align-bottom ms-1"></i></span> From previous</p> -->
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- end card-body -->
+                                </div>
+                                <!-- end card -->
+                            </div>
+                </div>
                     <div class="row">
                             <div class="col-md-12 panel-body table-responsive" style="padding: 15px;">
-                                <h4 style="float: left;">Users Master</h4>
-                                <button type="button" class="btn btn-danger newusers addNewButton"  data-toggle="modal" data-target="#usersTokenModal" name="Send" >Add New Token</button>
+                                <h4 style="float: left;">Recent Users</h4>
+
                             </div>
                             <div class="container" style="margin: 10px !important;max-width: 98% !important;">
-                                <div class="col-md-12 panel-body table-responsive">
+                                <div class="col-md-12 panel-body table-responsive bg-white p-3">
                                     <table id="userChatTable" class="table table-bordered table-hover table-striped table-bordered dt-responsive nowrap">
                                         <thead>
                                             <tr>
@@ -45,7 +95,12 @@
                                         <tbody>
                                             <!-- token name hdId email mobile activeAt validity activeTill remark status -->
                                             <?php
-                                                $sql="SELECT * FROM `checkUser` ORDER BY id DESC; ";
+                                                if ($_SESSION['role'] == 'super'){
+                                                    $sql="SELECT * FROM `checkUser` ORDER BY id DESC; ";
+                                                } else {
+                                                    $added_by = intval($_SESSION['userId']);
+                                                    $sql="SELECT * FROM `checkUser` WHERE added_by = '$added_by'  ORDER BY id DESC; ";
+                                                }
                                                 $result = $conn->query($sql);
                                                 if ($result) {
                                                     if ($result->num_rows > 0) {
@@ -92,42 +147,6 @@
             </div>
         </div>
 
-    <div id="usersTokenModal" class="modal fade" role="dialog">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h4 class="modal-name">User <small style="font-size: 70%;opacity: 0.5;">Add/Edit</small></h4>
-                    <button type="button" class="close" data-dismiss="modal">&times;</button>
-                </div>
-                <div class="modal-body">
-                    <form method="post" action="action/users.php" name="usersForm" id="usersForm" autocomplete="off">
-                        <div class="row">
-                            <div class="form-group col-md-12 padd-bt-20">
-                                <label class="validity" for="form-username">Validity</label>
-                                <input type="number" name="validity" placeholder="validity (required)" class="form-name form-control form-style2" id="validity" min="1" required />
-                            </div>
-                            
-                            <div class="form-group col-md-12 padd-bt-20">
-                                <label class="tokenUser" for="form-username">Name</label>
-                                <input type="text" name="name" class="form-name form-control form-style2" />
-                            </div>
-
-                            <div class="form-group col-md-12 padd-bt-20">
-                                <label class="Remark" for="form-username">Remark</label>
-                                <input type="text" name="remark" class="form-name form-control form-style2" />
-                            </div>
-
-                            <div class="form-group col-md-12 padd-bt-20">
-                                <button type="submit" class="btn buttonColor actionusers" name="Send" style="font-size: 20px;">Submit</button>
-                            </div>
-                        </div>
-                    </form>
-                </div>
-            
-            </div>
-        </div>
-    </div>
-
     </div>
 
 
@@ -154,7 +173,7 @@
                     console.log("beforeSend");
                 },
                 success: function(data){
-                    alert("Successfully Save Token");
+                    alert("Status changed successfully");
                     location.reload();
                 },
                 error: function(e){
@@ -164,33 +183,7 @@
 
         });
 
-        $('#userChatTable').DataTable({
-            scrollY:        '60vh',
-            // scrollCollapse: true,
-            	"scrollX": true 
-        });
-
-        $(document).on("submit","#usersForm",function(e) {
-            e.preventDefault();
-            $.ajax({
-                url: "saveToken.php",
-                type: "POST",
-                data:  new FormData(this),
-                contentType: false,
-                cache: false,
-                processData:false,
-                beforeSend : function(){
-                    console.log("beforeSend");
-                },
-                success: function(data){
-                    alert("Successfully Save Token");
-                    location.reload();
-                },
-                error: function(e){
-                    console.log("error");
-                }          
-            });
-        });
+        $('#userChatTable').DataTable();
     });
 </script>
 </body>

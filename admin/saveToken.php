@@ -6,6 +6,7 @@
             
             $token = str_replace(".","",microtime(true)).rand(000,999);
             $token = getToken(16);
+            $added_by = $_POST['added_by'];
             $validity = 7;
             if($_POST['validity']){
                 $validity = $_POST['validity'];
@@ -17,7 +18,7 @@
             if($_POST['remark']){
                 $remark = $_POST['remark'];
             }
-            $sql = "INSERT INTO `checkUser`(`token`,`name`,`remark`,`createdAt`,`validity`) VALUES ('$token','$name','$remark',NOW(),$validity)";
+            $sql = "INSERT INTO `checkUser`(`token`,`name`,`remark`,`createdAt`,`validity`, `added_by`) VALUES ('$token','$name','$remark',NOW(),$validity, '$added_by')";
             if ($conn->query($sql) === TRUE) {
               // echo "New record created successfully";
                 echo json_encode([
