@@ -19,10 +19,7 @@
                 <div class="container-fluid" style="padding-top: 1%">
                     <div class="row">
                             <div class="col-md-12 panel-body table-responsive" style="padding: 15px;">
-                                <h4 style="float: left;">All Users</h4> &emsp; &emsp;
-                                <div class="float-end">
-                                    <button type="button" class="btn btn-primary newusers addNewButton" name="send" data-bs-toggle="modal" data-bs-target="#usersTokenModal">New Token</button>
-                                </div>
+                                <h4 style="float: left;">Archived Users</h4> &emsp; &emsp;
                             </div>
                             <div class="container" style="margin: 10px !important;max-width: 98% !important;">
                                 <div class="col-md-12 panel-body table-responsive bg-white p-3">
@@ -48,10 +45,10 @@
                                             <!-- token name hdId email mobile activeAt validity activeTill remark status -->
                                             <?php
                                                 if ($_SESSION['role'] == 'super'){
-                                                    $sql="SELECT * FROM `checkUser` ORDER BY id DESC; ";
+                                                    $sql="SELECT * FROM `checkUser` WHERE status = 0 ORDER BY id DESC; ";
                                                 } else {
                                                     $added_by = intval($_SESSION['userId']);
-                                                    $sql="SELECT * FROM `checkUser` WHERE status = 1 AND added_by = '$added_by'  ORDER BY id DESC; ";
+                                                    $sql="SELECT * FROM `checkUser` WHERE status = 0 AND added_by = '$added_by'  ORDER BY id DESC; ";
                                                 }
                                                 
 
@@ -113,42 +110,6 @@
 
     </div>
 
-
-                <!-- Modal -->
-                <div class="modal fade" id="usersTokenModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-            <div class="modal-dialog">
-                <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">New Token</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                    <form method="post" action="action/users.php" name="usersForm" id="usersForm" autocomplete="off">
-                        <div class="row">
-                            <div class="form-group col-md-12 padd-bt-20">
-                                <label class="validity" for="form-username">Validity</label>
-                                <input type="number" name="validity" placeholder="validity (required)" class="form-name form-control form-style2" id="validity" min="1" required />
-                            </div>
-                            
-                            <div class="form-group col-md-12 padd-bt-20">
-                                <label class="tokenUser" for="form-username">Name</label>
-                                <input type="text" name="name" class="form-name form-control form-style2" />
-                            </div>
-
-                            <div class="form-group col-md-12 padd-bt-20">
-                                <label class="Remark" for="form-username">Remark</label>
-                                <input type="text" name="remark" class="form-name form-control form-style2" />
-                            </div>
-                            <input type="hidden" name="added_by" value="<?= $_SESSION['userId'] ?>">
-                            <div class="form-group col-md-12 d-grid gap-2 padd-bt-20 my-2">
-                                <button type="submit" class="btn btn-primary  buttonColor actionusers" name="Send" style="font-size: 20px;">Submit</button>
-                            </div>
-                        </div>
-                    </form>
-                </div>
-                </div>
-            </div>
-        </div>
     </div>
 
 
@@ -189,33 +150,8 @@
 
         });
 
-        $('#userChatTable').DataTable({
-            scrollY:        '60vh',
-            // scrollCollapse: true,
-            	"scrollX": true 
-        });
+        $('#userChatTable').DataTable();
 
-        $(document).on("submit","#usersForm",function(e) {
-            e.preventDefault();
-            $.ajax({
-                url: "saveToken.php",
-                type: "POST",
-                data:  new FormData(this),
-                contentType: false,
-                cache: false,
-                processData:false,
-                beforeSend : function(){
-                    console.log("beforeSend");
-                },
-                success: function(data){
-                    alert("Successfully Save Token");
-                    location.reload();
-                },
-                error: function(e){
-                    console.log("error");
-                }          
-            });
-        });
     });
 </script>
 </body>

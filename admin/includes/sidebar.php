@@ -31,6 +31,13 @@
                     </a>
                 </li>
             <?php } ?>
+            
+            <li>
+                <a href="archives.php" class=" waves-effect">
+                    <i class="mdi mdi-cube"></i>
+                    <span>Archives</span>
+                </a>
+            </li>
 
             <li>
                 <a href="logout.php" class=" waves-effect">

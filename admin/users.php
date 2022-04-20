@@ -16,10 +16,10 @@
         <?php  
 
             if ($_SESSION['role'] == 'super'){
-                $query = "SELECT * FROM checkUser";
+                $query = "SELECT * FROM checkUser ORDER BY id DESC";
             } else {
                 $adder = intval($_SESSION['userId']);
-                $query = "SELECT * FROM checkUser WHERE added_by = '$adder'";
+                $query = "SELECT * FROM checkUser WHERE added_by = '$adder' ORDER BY id DESC";
             }
             $result = $conn->query($query);
 
@@ -84,7 +84,7 @@
                                                 <th class="text-center"> HD-Id </th>
                                                 <th class="text-center"> Email </th>
                                                 <th class="text-center"> Phone </th>
-                                                <th class="text-center"> Activation Date </th>
+                                                <!-- <th class="text-center"> Activation Date </th> -->
                                                 <th class="text-center"> Validity </th>
                                                 <th class="text-center"> Valid Till Date </th>
                                                 <th class="text-center"> Notes </th>
@@ -99,7 +99,7 @@
                                                     $sql="SELECT * FROM `checkUser` ORDER BY id DESC; ";
                                                 } else {
                                                     $added_by = intval($_SESSION['userId']);
-                                                    $sql="SELECT * FROM `checkUser` WHERE added_by = '$added_by'  ORDER BY id DESC; ";
+                                                    $sql="SELECT * FROM `checkUser`  WHERE status = 1 AND added_by = '$added_by'  ORDER BY id DESC; ";
                                                 }
                                                 $result = $conn->query($sql);
                                                 if ($result) {
@@ -114,17 +114,17 @@
                                                                 <td id="hdId" class="text-center"> <?php echo $row['hdId']; ?> </td>
                                                                 <td id="usersemail" class="text-center"> <?php echo $row['email']; ?> </td>
                                                                 <td id="usersphone" class="text-center"> <?php echo $row['mobile']; ?> </td>
-                                                                <td id="activeAt" class="text-center"> <?php echo $row['activeAt']; ?> </td>
+                                                                <!-- <td id="activeAt" class="text-center"> <?php echo $row['activeAt']; ?> </td> -->
                                                                 <td id="validity" class="text-center"> <?php echo $row['validity']; ?> </td>
                                                                 <td id="activeTill" class="text-center"> <?php echo $row['activeTill']; ?> </td>
                                                                 <td id="remark" class="text-center"> <?php echo $row['remark']; ?> </td>
                                                                 <td id="featuredname" class="text-center">
                                                                     <?php
-                                                                        $status = "In Active";
+                                                                        $status = "In-Active";
                                                                         $action = "Active";
                                                                         if($row['status'] && $row['status']==1){
                                                                             $status = "Active";
-                                                                            $action = "In Active";
+                                                                            $action = "In-Active";
                                                                         }
                                                                     ?>
                                                                     <a href="#" data-action="<?=$action;?>" data-id="<?=$row['id'];?>" class="userStatus" >
@@ -173,7 +173,7 @@
                     console.log("beforeSend");
                 },
                 success: function(data){
-                    alert("Status changed successfully");
+                    alert("User Archived");
                     location.reload();
                 },
                 error: function(e){

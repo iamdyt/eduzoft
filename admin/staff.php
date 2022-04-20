@@ -33,6 +33,7 @@
                                                 <th class="text-center"> Username </th>
                                                 <th class="text-center"> E-mail </th>
                                                 <th class="text-center"> Full-Name </th>
+                                                <th class="text-center">Users</th>
 
                                                 <!-- <th class="text-center"> Action </th> -->
                                             </tr>
@@ -41,18 +42,21 @@
                                             <!-- token name hdId email mobile activeAt validity activeTill remark status -->
                                             <?php
                                                 $added_by = intval($_SESSION['userId']);
-                                                $sql="SELECT * FROM `adminUser`  ORDER BY id DESC; ";
+                                                $sql = "SELECT adminUser.username, adminUser.email, adminUser.fullName, COUNT(checkUser.id) as county FROM adminUser  JOIN checkUser ON adminUser.id = checkUser.added_by";
                                                 $result = $conn->query($sql);
+                                                // print_r($result->fetch_array()); exit;
                                                 if ($result) {
                                                     if ($result->num_rows > 0) {
                                                         $srNo = 0;
-                                                        while($row = $result->fetch_assoc()) { 
+                                                        // print_r($result->fetch_all()); exit;
+                                                        while($row = $result->fetch_all(MYSQLI_ASSOC)) { 
                                                         ?>
                                                             <tr class="edit" id="detail">
 
                                                                 <td id="usersemail" class="text-center"> <?php echo $row['username']; ?> </td>
                                                                 <td id="usersphone" class="text-center"> <?php echo $row['email']; ?> </td>
-                                                                <td id="activeAt" class="text-center"> <?php echo $row['fullName']; ?> </td>                                                                
+                                                                <td id="activeAt" class="text-center"> <?php echo $row['fullName']; ?> </td>          
+                                                                <td class="text-center"><?=$row['county']?></td>                                                      
                                                             </tr>
                                                             <?php
                                                         }
