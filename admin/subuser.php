@@ -10,7 +10,7 @@
 </head>
 <body data-sidebar = "dark">
     <div id="layout-wrapper">
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/iamdyt/eduzoft/css/styles.css">
+        
         <?= require_once './includes/header.php' ?>
         <?= require_once './includes/sidebar.php' ?>
 
