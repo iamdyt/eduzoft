@@ -173,7 +173,7 @@
                     console.log("beforeSend");
                 },
                 success: function(data){
-                    alert("User Archived");
+                    alert("User Status updated");
                     location.reload();
                 },
                 error: function(e){

@@ -34,6 +34,7 @@
                                                 <th class="text-center"> E-mail </th>
                                                 <th class="text-center"> Full-Name </th>
                                                 <th class="text-center">Users</th>
+                                                <th>Actions</th>
 
                                                 <!-- <th class="text-center"> Action </th> -->
                                             </tr>
@@ -42,21 +43,22 @@
                                             <!-- token name hdId email mobile activeAt validity activeTill remark status -->
                                             <?php
                                                 $added_by = intval($_SESSION['userId']);
-                                                $sql = "SELECT adminUser.username, adminUser.email, adminUser.fullName, COUNT(checkUser.id) as county FROM adminUser  JOIN checkUser ON adminUser.id = checkUser.added_by";
+                                                $sql = "SELECT adminUser.id, adminUser.username, adminUser.email, adminUser.fullName, COUNT(checkUser.id) as county FROM adminUser  LEFT JOIN checkUser ON adminUser.id = checkUser.added_by GROUP BY adminUser.username HAVING COUNT(checkUser.id) >= 0 ";
                                                 $result = $conn->query($sql);
                                                 // print_r($result->fetch_array()); exit;
                                                 if ($result) {
                                                     if ($result->num_rows > 0) {
                                                         $srNo = 0;
                                                         // print_r($result->fetch_all()); exit;
-                                                        while($row = $result->fetch_all(MYSQLI_ASSOC)) { 
+                                                        while($row = $result->fetch_array(MYSQLI_ASSOC)) { 
                                                         ?>
                                                             <tr class="edit" id="detail">
 
                                                                 <td id="usersemail" class="text-center"> <?php echo $row['username']; ?> </td>
                                                                 <td id="usersphone" class="text-center"> <?php echo $row['email']; ?> </td>
                                                                 <td id="activeAt" class="text-center"> <?php echo $row['fullName']; ?> </td>          
-                                                                <td class="text-center"><?=$row['county']?></td>                                                      
+                                                                <td class="text-center"><?=$row['county']?></td>     
+                                                                <td class="text-center"> <a href="subuser.php?id=<?=$row['id']?>&name=<?=$row['username']?>" class="btn btn-sm btn-danger <?=$row['county'] == 0 ? 'disabled' : '' ?>   "> View</a> </td>                                                 
                                                             </tr>
                                                             <?php
                                                         }
