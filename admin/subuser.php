@@ -19,7 +19,7 @@
                 <div class="container-fluid" style="padding-top: 1%">
                     <div class="row">
                             <div class="col-md-12 panel-body table-responsive" style="padding: 15px;">
-                                <h4 style="float: left;">All Users by <?= mb_convert_case($_GET['name'], MB_CASE_TITLE) ?></h4> &emsp; &emsp;
+                                <h4 style="float: left;">All Users by <?= $_GET['name'] ?></h4> &emsp; &emsp;
 
                             </div>
                             <div class="container" style="margin: 10px !important;max-width: 98% !important;">
