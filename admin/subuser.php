@@ -48,7 +48,6 @@
                                                 $added_by = intval($_GET['id']);
                                                 $sql="SELECT * FROM `checkUser` WHERE added_by = '$added_by'  ORDER BY id DESC; ";
                                                
-
                                                 $result = $conn->query($sql);
                                                 if ($result) {
                                                     if ($result->num_rows > 0) {
@@ -106,10 +105,6 @@
         </div>
 
     </div>
-
-    </div>
-
-
     
 
 
