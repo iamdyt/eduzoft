@@ -1,3 +1,4 @@
+<?php require_once 'middleware.php'; ?>
 <?php
     include 'dbConfig.php';
     if($_SERVER['REQUEST_METHOD'] == 'POST'){

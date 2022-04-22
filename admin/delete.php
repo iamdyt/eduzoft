@@ -1,5 +1,7 @@
+<?php require_once 'middleware.php'; ?>
 <?php
     include 'dbConfig.php';
+    
 
     if (isset($_GET['staff'])){
         $staff_id = intval($_GET['staff']);

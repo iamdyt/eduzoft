@@ -6,6 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <?= require_once './includes/header_styles.php' ?>
+    <?= require_once 'middleware.php' ?>
     <title>Administrator Dashboard</title>
 </head>
 <body data-sidebar = "dark">
@@ -30,7 +31,7 @@
                                                 <th class="text-center"> ID </th>
                                                 <th class="text-center"> Token </th>
                                                 <th class="text-center"> Name </th>
-                                                <th class="text-center"> HD-Id </th>
+                                                <!-- <th class="text-center"> HD-Id </th> -->
                                                 <th class="text-center"> Email </th>
                                                 <th class="text-center"> Phone </th>
                                                 <!-- <th class="text-center"> Activation Date </th> -->
@@ -60,9 +61,9 @@
                                                         ?>
                                                             <tr class="edit" id="detail">
                                                                 <td id="usersId" class="text-center"> <?php echo $srNo = $srNo + 1; ?> </td>
-                                                                <td id="userUdid" class="text-center"> <i onclick="clipCopy('<?=$row['token']?>')" class="mdi mdi-clipboard-arrow-left text-primary" style="cursor: pointer; font-size:larger;"></i> <?php echo $row['token']; ?> </td>
+                                                                <td id="userUdid" class="text-center">  <?php echo $row['token']; ?>  <i onclick="clipCopy('<?=$row['token']?>')" class="mdi mdi-clipboard-arrow-left text-primary t" style="cursor: pointer; font-size:larger; float:right !important;"></i> &emsp;</td>
                                                                 <td id="username" class="text-center"> <?php echo $row['name']; ?> </td>
-                                                                <td id="hdId" class="text-center"> <?php echo $row['hdId']; ?> </td>
+                                                                <!-- <td id="hdId" class="text-center"> <?php echo $row['hdId']; ?> </td> -->
                                                                 <td id="usersemail" class="text-center"> <?php echo $row['email']; ?> </td>
                                                                 <td id="usersphone" class="text-center"> <?php echo $row['mobile']; ?> </td>
                                                                 <!-- <td id="activeAt" class="text-center"> <?php echo $row['activeAt']; ?> </td> -->

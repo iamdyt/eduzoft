@@ -1,5 +1,6 @@
 <?php
     error_reporting(1);
+    include 'middleware.php';
     include 'dbConfig.php';
     // if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true) {
         if($_POST && $_POST['validity']){
