@@ -1,4 +1,4 @@
 RewriteEngine on
 
-RewriteCond %{HTTPS}::%{HTTP_HOST} ^off::(?:www\.)?(.+)$
+RewriteCond %{REQUEST_SCHEME}::%{HTTP_HOST} ^http::(?:www\.)?(.+)$
 RewriteRule ^ https://www.%1%{REQUEST_URI} [NE,L,R]
