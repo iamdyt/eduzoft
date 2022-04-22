@@ -41,7 +41,7 @@
                                                 <th class="text-center"> Valid Till Date </th>
                                                 <th class="text-center"> Notes </th>
                                                 <th class="text-center"> Status </th>
-                                                <!-- <th class="text-center"> Action </th> -->
+                                                <th class="text-center"> Action </th>
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -63,7 +63,7 @@
                                                         ?>
                                                             <tr class="edit" id="detail">
                                                                 <td id="usersId" class="text-center"> <?php echo $srNo = $srNo + 1; ?> </td>
-                                                                <td id="userUdid" class="text-center"> <?php echo $row['token']; ?> </td>
+                                                                <td id="userUdid" class="text-center"> <i onclick="clipCopy('<?=$row['token']?>')" class="mdi mdi-clipboard-arrow-left text-primary" style="cursor: pointer; font-size:larger;"></i> &emsp; <?php echo $row['token']; ?> </td>
                                                                 <td id="username" class="text-center"> <?php echo $row['name']; ?> </td>
                                                                 <td id="hdId" class="text-center"> <?php echo $row['hdId']; ?> </td>
                                                                 <td id="usersemail" class="text-center"> <?php echo $row['email']; ?> </td>
@@ -85,17 +85,19 @@
                                                                         <?php echo $status; ?>
                                                                     </a>
                                                                 </td>
-                                                                <!-- <td>
+
+                                                                <td>
                                                                     <div class="btn-group">
-                                                                        <button type="button" class="btn btn-danger dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
-                                                                            Action
+                                                                        <button type="button" class="btn btn-danger  btn-sm dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+                                                                            Action &DownArrow;
                                                                         </button>
                                                                         <ul class="dropdown-menu">
-                                                                            <li><a class="dropdown-item" href="#">Action</a></li>
+                                                                            <li><a class="dropdown-item" href="updateuser.php?user=<?=$row['id']?>">Edit</a></li>
+                                                                            <li><a href="delete.php?user=<?=$row['id']?>" class="dropdown-item">Delete</a></li>
 
                                                                         </ul>
                                                                     </div>
-                                                                </td> -->
+                                                                </td>
                                                             </tr>
                                                             <?php
                                                         }
@@ -160,6 +162,7 @@
     <?= require_once './includes/footer_styles.php' ?>
     <script>
         $('#userstable').DataTable();
+
     </script>
 
 <script type="text/javascript">

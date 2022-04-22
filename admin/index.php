@@ -54,7 +54,7 @@ if ($_POST) {
         <meta name="description" content="" />
         <meta name="author" content="" />
         <title>::Welcome to Admin</title>
-        <?= require_once './includes/header_styles.php' ?>
+        <?php require_once './includes/header_styles.php' ?>
         <link href="https://cdn.jsdelivr.net/gh/iamdyt/eduzoft/tokenMaster/css/styles.css" rel="stylesheet" />
         <link rel="stylesheet" href="./css/styles.css">
         <link href="https://cdn.datatables.net/1.10.20/css/dataTables.bootstrap4.min.css" rel="stylesheet" crossorigin="anonymous" />
@@ -99,6 +99,6 @@ if ($_POST) {
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
 
         <!-- new -->
-        <?= require_once './includes/footer_styles.php'?>
+        <?php require_once './includes/footer_styles.php'?>
     </body>
 </html>

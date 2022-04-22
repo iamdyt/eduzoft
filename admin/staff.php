@@ -43,7 +43,7 @@
                                             <!-- token name hdId email mobile activeAt validity activeTill remark status -->
                                             <?php
                                                 $added_by = intval($_SESSION['userId']);
-                                                $sql = "SELECT adminUser.id, adminUser.username, adminUser.email, adminUser.fullName, COUNT(checkUser.id) as county FROM adminUser  LEFT JOIN checkUser ON adminUser.id = checkUser.added_by GROUP BY adminUser.username HAVING COUNT(checkUser.id) >= 0 ";
+                                                $sql = "SELECT adminUser.id, adminUser.username, adminUser.email, adminUser.fullName, COUNT(checkUser.id) as county FROM adminUser  LEFT JOIN checkUser ON adminUser.id = checkUser.added_by WHERE adminUser.id != '$added_by' GROUP BY adminUser.username HAVING COUNT(checkUser.id) >= 0 ";
                                                 $result = $conn->query($sql);
                                                 // print_r($result->fetch_array()); exit;
                                                 if ($result) {
@@ -58,7 +58,10 @@
                                                                 <td id="usersphone" class="text-center"> <?php echo $row['email']; ?> </td>
                                                                 <td id="activeAt" class="text-center"> <?php echo $row['fullName']; ?> </td>          
                                                                 <td class="text-center"><?=$row['county']?></td>     
-                                                                <td class="text-center"> <a href="subuser.php?id=<?=$row['id']?>&name=<?=$row['username']?>" class="btn btn-sm btn-danger <?=$row['county'] == 0 ? 'disabled' : '' ?>   "> View</a> </td>                                                 
+                                                                <td class="text-center"> 
+                                                                    <a href="subuser.php?id=<?=$row['id']?>&name=<?=$row['username']?>" class="btn btn-sm btn-info <?=$row['county'] == 0 ? 'disabled' : '' ?>   "> View</a> 
+                                                                    <a href="delete.php?staff=<?=$row['id']?>" class="btn btn-sm btn-danger">Delete</a>
+                                                                </td>                                              
                                                             </tr>
                                                             <?php
                                                         }

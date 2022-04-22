@@ -19,3 +19,10 @@
 <script src="https://cdn.jsdelivr.net/gh/iamdyt/upzetassets/js/pages/dashboard.init.js"></script>
 
 <script src="https://cdn.jsdelivr.net/gh/iamdyt/upzetassets/js/app.js"></script>
+<script>
+function clipCopy(data){
+  navigator.clipboard.writeText(data).then(()=>{
+   alert("copied")
+  })
+}
+</script>
