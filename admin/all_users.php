@@ -89,9 +89,9 @@
                                                                 </td>
 
                                                                 <td>
-                                                                    <div class="btn-group">
+                                                                    <div class="btn-group dropstart">
                                                                         <button type="button" class="btn btn-danger  btn-sm dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
-                                                                            Action &DownArrow;
+                                                                            Action 
                                                                         </button>
                                                                         <ul class="dropdown-menu">
                                                                             <li><a class="dropdown-item" href="updateuser.php?user=<?=$row['id']?>">Edit</a></li>
