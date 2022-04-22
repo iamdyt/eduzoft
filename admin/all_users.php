@@ -93,7 +93,7 @@
                                                                         <button type="button" class="btn btn-danger  btn-sm dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
                                                                             Action 
                                                                         </button>
-                                                                        <ul class="dropdown-menu">
+                                                                        <ul class="dropdown-menu  ">
                                                                             <li><a class="dropdown-item" href="updateuser.php?user=<?=$row['id']?>">Edit</a></li>
                                                                             <li><a href="delete.php?user=<?=$row['id']?>" class="dropdown-item">Delete</a></li>
 
