@@ -66,7 +66,7 @@ if ($_POST) {
             <div class="container">
                 <div class="row">
                     <div class="col-md-6 offset-md-3">
-                        <div class="card card-body p-4 bg-white">
+                        <div class="card card-body p-4 bg-white animate__animated animate__fadeInUp animate">
                         <h4 class="font-size-18 text-muted mt-2 text-center">Welcome Back !</h4>
                         <p class="mb-5 text-center">Sign in to continue</p>
                             <form id="loginPassForm" method="POST" class="">
