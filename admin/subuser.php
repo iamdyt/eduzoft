@@ -36,7 +36,7 @@
                                                 <th class="text-center"> Email </th>
                                                 <th class="text-center"> Phone </th>
                                                 <!-- <th class="text-center"> Activation Date </th> -->
-                                                <th class="text-center"> Validity </th>
+                                                <!-- <th class="text-center"> Validity </th> -->
                                                 <th class="text-center"> Valid Till Date </th>
                                                 <th class="text-center"> Notes </th>
                                                 <th class="text-center"> Status </th>
@@ -63,17 +63,17 @@
                                                         while($row = $result->fetch_assoc()) { 
                                                         ?>
                                                             <tr class="edit" id="detail">
-                                                                <td id="usersId" class="text-center"> <?php echo $srNo = $srNo + 1; ?> </td>
-                                                                <td id="userUdid" class="text-center"> <?php echo $row['token']; ?> <i onclick="clipCopy('<?=$row['token']?>')" class="mdi mdi-clipboard-arrow-left text-primary t" style="cursor: pointer; font-size:larger; float:right !important;"></i> &emsp; </td>
-                                                                <td id="username" class="text-center"> <?php echo $row['name']; ?> </td>
+                                                                <td id="usersId" class="text-left"> <?php echo $srNo = $srNo + 1; ?> </td>
+                                                                <td id="userUdid" class="text-left"> <?php echo $row['token']; ?> <i onclick="clipCopy('<?=$row['token']?>')" class="mdi mdi-clipboard-arrow-left text-primary t" style="cursor: pointer; font-size:larger; float:right !important;"></i> &emsp; </td>
+                                                                <td id="username" class="text-left"> <?php echo $row['name']; ?> </td>
                                                                 <!-- <td id="hdId" class="text-center"> <?php echo $row['hdId']; ?> </td> -->
-                                                                <td id="usersemail" class="text-center"> <?php echo $row['email']; ?> </td>
-                                                                <td id="usersphone" class="text-center"> <?php echo $row['mobile']; ?> </td>
+                                                                <td id="usersemail" class="text-left"> <?php echo $row['email']; ?> </td>
+                                                                <td id="usersphone" class="text-left"> <?php echo $row['mobile']; ?> </td>
                                                                 <!-- <td id="activeAt" class="text-center"> <?php echo $row['activeAt']; ?> </td> -->
-                                                                <td id="validity" class="text-center"> <?php echo $row['validity']; ?> </td>
-                                                                <td id="activeTill" class="text-center"> <?php echo $row['activeTill']; ?> </td>
-                                                                <td id="remark" class="text-center"> <?php echo $row['remark']; ?> </td>
-                                                                <td id="featuredname" class="text-center">
+                                                                <!-- <td id="validity" class="text-center"> <?php echo $row['validity']; ?> </td> -->
+                                                                <td id="activeTill" class="text-left"> <?php echo $row['activeTill']; ?> </td>
+                                                                <td id="remark" class="text-left"> <?php echo $row['remark']; ?> </td>
+                                                                <td id="featuredname" class="text-left">
                                                                     <?php
                                                                         $status = "In-Active";
                                                                         $action = "Active";
