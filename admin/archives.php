@@ -30,6 +30,7 @@
                                                 <!-- `id`, `token`, `name`, `email`, `mobile`, `hdId`, `activeAt`, `createdAt`, `status`, `product`, `validity`, `activeTill`, `noComputers`, `remark` -->
                                                 <th class="text-center"> ID </th>
                                                 <th class="text-center"> Token </th>
+                                                <th class="text-center">Action</th>
                                                 <th class="text-center"> Name </th>
                                                 <!-- <th class="text-center"> HD-Id </th> -->
                                                 <th class="text-center"> Email </th>
@@ -62,6 +63,18 @@
                                                             <tr class="edit" id="detail">
                                                                 <td id="usersId" class="text-center"> <?php echo $srNo = $srNo + 1; ?> </td>
                                                                 <td id="userUdid" class="text-center">  <?php echo $row['token']; ?>  <i onclick="clipCopy('<?=$row['token']?>')" class="mdi mdi-clipboard text-primary t" style="cursor: pointer; font-size:larger; float:right !important;"></i> &emsp;</td>
+                                                                <td>
+                                                                    <div class="btn-group dropstart">
+                                                                        <button type="button" class="btn btn-danger  btn-sm dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+                                                                            Action 
+                                                                        </button>
+                                                                        <ul class="dropdown-menu  ">
+                                                                            <li><a class="dropdown-item" href="updateuser.php?user=<?=$row['id']?>">Edit</a></li>
+                                                                            <li><a href="delete.php?user=<?=$row['id']?>" class="dropdown-item">Delete</a></li>
+
+                                                                        </ul>
+                                                                    </div>
+                                                                </td>
                                                                 <td id="username" class="text-center"> <?php echo $row['name']; ?> </td>
                                                                 <!-- <td id="hdId" class="text-center"> <?php echo $row['hdId']; ?> </td> -->
                                                                 <td id="usersemail" class="text-center"> <?php echo $row['email']; ?> </td>
