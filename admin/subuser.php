@@ -31,16 +31,21 @@
                                                 <!-- `id`, `token`, `name`, `email`, `mobile`, `hdId`, `activeAt`, `createdAt`, `status`, `product`, `validity`, `activeTill`, `noComputers`, `remark` -->
                                                 <th class="text-center"> ID </th>
                                                 <th class="text-center"> Token </th>
-                                                <th class="text-center"> Name </th>
-                                                <!-- <th class="text-center"> HD-Id </th> -->
-                                                <th class="text-center"> Email </th>
-                                                <th class="text-center"> Phone </th>
-                                                <!-- <th class="text-center"> Activation Date </th> -->
-                                                <!-- <th class="text-center"> Validity </th> -->
-                                                <th class="text-center"> Valid Till Date </th>
-                                                <th class="text-center"> Notes </th>
                                                 <th class="text-center"> Status </th>
-                                                <!-- <th class="text-center"> Action </th> -->
+                                                <th class="text-center">Action</th>
+                                                <th class="text-center"> Validity </th>
+                                                <th class="text-center"> Name </th>
+                                                <th class="text-center"> Notes </th>
+                                                <th class="text-center"> Phone </th>
+                                                <th class="text-center"> Email </th>
+                                                <th class="text-center"> HD-Id </th>
+                                               
+                                                
+                                                <!-- <th class="text-center"> Activation Date </th> -->
+                                                
+                                                <th class="text-center"> Valid Till Date </th>
+                                                
+                                                
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -64,15 +69,8 @@
                                                         ?>
                                                             <tr class="edit" id="detail">
                                                                 <td id="usersId" class="text-left"> <?php echo $srNo = $srNo + 1; ?> </td>
-                                                                <td id="userUdid" class="text-left"> <?php echo $row['token']; ?> <i onclick="clipCopy('<?=$row['token']?>')" class="mdi mdi-clipboard-arrow-left text-primary t" style="cursor: pointer; font-size:larger; float:right !important;"></i> &emsp; </td>
-                                                                <td id="username" class="text-left"> <?php echo $row['name']; ?> </td>
-                                                                <!-- <td id="hdId" class="text-center"> <?php echo $row['hdId']; ?> </td> -->
-                                                                <td id="usersemail" class="text-left"> <?php echo $row['email']; ?> </td>
-                                                                <td id="usersphone" class="text-left"> <?php echo $row['mobile']; ?> </td>
-                                                                <!-- <td id="activeAt" class="text-center"> <?php echo $row['activeAt']; ?> </td> -->
-                                                                <!-- <td id="validity" class="text-center"> <?php echo $row['validity']; ?> </td> -->
-                                                                <td id="activeTill" class="text-left"> <?php echo $row['activeTill']; ?> </td>
-                                                                <td id="remark" class="text-left"> <?php echo $row['remark']; ?> </td>
+                                                                <td id="userUdid" class="text-left"> <?php echo $row['token']; ?> <i onclick="clipCopy('<?=$row['token']?>')" class="mdi mdi-clipboard text-primary t" style="cursor: pointer; font-size:larger; float:right !important;"></i> &emsp; </td>
+                                                    
                                                                 <td id="featuredname" class="text-left">
                                                                     <?php
                                                                         $status = "In-Active";
@@ -86,17 +84,32 @@
                                                                         <?php echo $status; ?>
                                                                     </a>
                                                                 </td>
-                                                                <!-- <td>
-                                                                    <div class="btn-group">
-                                                                        <button type="button" class="btn btn-danger dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
-                                                                            Action
+
+                                             
+                                                                <td>
+                                                                    <div class="btn-group dropstart">
+                                                                        <button type="button" class="btn btn-danger  btn-sm dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+                                                                            Action 
                                                                         </button>
-                                                                        <ul class="dropdown-menu">
-                                                                            <li><a class="dropdown-item" href="#">Action</a></li>
+                                                                        <ul class="dropdown-menu  ">
+                                                                            <li><a class="dropdown-item" href="updateuser.php?user=<?=$row['id']?>">Edit</a></li>
+                                                                            <li><a href="delete.php?user=<?=$row['id']?>" class="dropdown-item">Delete</a></li>
 
                                                                         </ul>
                                                                     </div>
-                                                                </td> -->
+                                                                </td>
+
+                                                                <td id="validity" class="text-center"> <?php echo $row['validity']; ?> </td>
+                                                                <td id="username" class="text-left"> <?php echo $row['name']; ?> </td>
+                                                                <td id="remark" class="text-left"> <?php echo $row['remark']; ?> </td>
+                                                                <td id="usersphone" class="text-left"> <?php echo $row['mobile']; ?> </td>
+                                                                <td id="usersemail" class="text-left"> <?php echo $row['email']; ?> </td>
+                                                                <td id="hdId" class="text-center"> <?php echo $row['hdId']; ?> </td>
+                                                                                                       
+                                                                <!-- <td id="activeAt" class="text-center"> <?php echo $row['activeAt']; ?> </td> -->
+                                                                
+                                                                <td id="activeTill" class="text-left"> <?php echo $row['activeTill']; ?> </td>
+                                                               
                                                             </tr>
                                                             <?php
                                                         }

@@ -13,14 +13,38 @@
         // exit();
     }
 if ($_POST) {
-    $username=$_POST['username']; 
-    $password=$_POST['password']; 
-    $username = stripslashes($username);
-    $password = stripslashes($password);
-    $password = md5($password);
-    $sql="SELECT * FROM adminUser WHERE username='$username' and password='$password'";
-    $result = $conn->query($sql);
-    if ($result) {
+    
+
+    if(!isset($_SESSION['attempt'])){
+        $_SESSION['attempt'] = 0;
+        $_SESSION['time_locked'] = 0;
+    } else {
+        // check the difference between timelocked and now to determine whether the user has been locked out before due to many requests
+        if (time()-$_SESSION['time_locked'] >= 30 and intval($_SESSION['attempt']) == 4 ){
+             $_SESSION['attempt'] = 0;
+            $_SESSION['time_locked'] = 0;
+             unset($_SESSION['message']);
+            //  print_r('f'); exit;
+        } elseif (time()-$_SESSION['time_locked'] >= 30 and intval($_SESSION['attempt']) <= 3 ) {
+            $_SESSION['time_locked'] = 0;
+            unset($_SESSION['message']);
+            // print_r('s'); exit;
+        }
+        
+        else {
+            // if time difference is less than 30
+            // you cant login
+            header("Location:{$_SERVER['HTTP_REFERER']}");
+        }
+        // print_r($_SESSION['attempt']); exit;
+        $username=$_POST['username']; 
+        $password=$_POST['password']; 
+        $username = stripslashes($username);
+        $password = stripslashes($password);
+        $password = md5($password);
+        $sql="SELECT * FROM adminUser WHERE username='$username' and password='$password'";
+        $result = $conn->query($sql);
+
         if ($result->num_rows > 0) {
             while($row = $result->fetch_assoc()) {
                 // print_r($row);exit();
@@ -35,12 +59,29 @@ if ($_POST) {
             }
             header("Location: ./admin/users.php");
         } else {
+            if (intval($_SESSION['attempt']) < 3 ){
+
+                $_SESSION['attempt']= intval( $_SESSION['attempt'])+1;
+                
+                header("Location:{$_SERVER['HTTP_REFERER']}");
+
+            } else {
+                
+                $_SESSION['time_locked'] = time();
+                $_SESSION['attempt']= intval( $_SESSION['attempt'])+1;
+                $_SESSION['message'] = "Login limit reached, try again after 30 seconds";
+                header("Location:{$_SERVER['HTTP_REFERER']}");
+                
+            }
+            
+
           echo "0 results";
         }
-        
-    } else {
-        echo "No data found";
+
     }
+
+        
+  
     // exit();
 }
 
@@ -66,6 +107,16 @@ if ($_POST) {
             <div class="container">
                 <div class="row">
                     <div class="col-md-6 offset-md-3">
+                        
+                            <?php if (!empty($_SESSION['message'])){  ?>
+                                <div class="alert alert-danger d-flex align-items-center" role="alert">
+                                    <svg class="bi flex-shrink-0 me-2" width="24" height="24" role="img" aria-label="Danger:"><use xlink:href="#exclamation-triangle-fill"/></svg>
+                                    <div>
+                                    <?= $_SESSION['message'] ?>
+                                    </div>
+                                </div>
+                            <?php } ?>
+                        
                         <div class="card card-body p-4 bg-white animate__animated animate__fadeInUp animate">
                         <h4 class="font-size-18 text-muted mt-2 text-center">Welcome Back !</h4>
                         <p class="mb-5 text-center">Sign in to continue</p>

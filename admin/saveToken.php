@@ -19,7 +19,7 @@
             if($_POST['remark']){
                 $remark = $_POST['remark'];
             }
-            $sql = "INSERT INTO `checkUser`(`token`,`name`,`remark`,`createdAt`,`validity`, `added_by`) VALUES ('$token','$name','$remark',NOW(),$validity, '$added_by')";
+            $sql = "INSERT INTO `checkUser`(`token`,`name`,`remark`,`createdAt`,`validity`,`status`, `added_by`) VALUES ('$token','$name','$remark',NOW(),$validity, 3, '$added_by')";
             if ($conn->query($sql) === TRUE) {
               // echo "New record created successfully";
                 echo json_encode([

@@ -100,7 +100,7 @@
                                                     $sql="SELECT * FROM `checkUser` ORDER BY id DESC; ";
                                                 } else {
                                                     $added_by = intval($_SESSION['userId']);
-                                                    $sql="SELECT * FROM `checkUser`  WHERE status = 1 AND added_by = '$added_by'  ORDER BY id DESC; ";
+                                                    $sql="SELECT * FROM `checkUser`  WHERE status > 0 AND added_by = '$added_by'  ORDER BY id DESC; ";
                                                 }
                                                 $result = $conn->query($sql);
                                                 if ($result) {
@@ -110,7 +110,7 @@
                                                         ?>
                                                             <tr class="edit" id="detail">
                                                                 <td id="usersId" class="text-center"> <?php echo $srNo = $srNo + 1; ?> </td>
-                                                                <td id="userUdid" class="text-left">  <?php echo $row['token']; ?> <i onclick="clipCopy('<?=$row['token']?>')" class="mdi mdi-clipboard-arrow-left text-primary t" style="cursor: pointer; font-size:larger; float:right !important;"></i> &emsp; </td>
+                                                                <td id="userUdid" class="text-left">  <?php echo $row['token']; ?> <i onclick="clipCopy('<?=$row['token']?>')" class="mdi mdi-clipboard text-primary t" style="cursor: pointer; font-size:larger; float:right !important;"></i> &emsp; </td>
                                                                 <td id="username" class="text-left"> <?php echo $row['name']; ?> </td>
                                                                 <!-- <td id="hdId" class="text-center"> <?php echo $row['hdId']; ?> </td> -->
                                                                 <td id="usersemail" class="text-left"> <?php echo $row['email']; ?> </td>
