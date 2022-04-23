@@ -47,10 +47,10 @@
                                             <!-- token name hdId email mobile activeAt validity activeTill remark status -->
                                             <?php
                                                 if ($_SESSION['role'] == 'super'){
-                                                    $sql="SELECT * FROM `checkUser` WHERE status = 0 ORDER BY id DESC; ";
+                                                    $sql="SELECT * FROM `checkUser` WHERE status = 0 AND activeTill != NULL  ORDER BY id DESC; ";
                                                 } else {
                                                     $added_by = intval($_SESSION['userId']);
-                                                    $sql="SELECT * FROM `checkUser` WHERE status = 0 AND added_by = '$added_by'  ORDER BY id DESC; ";
+                                                    $sql="SELECT * FROM `checkUser` WHERE status = 0 AND added_by = '$added_by' AND activeTill != NULL  ORDER BY id DESC; ";
                                                 }
                                                 
 

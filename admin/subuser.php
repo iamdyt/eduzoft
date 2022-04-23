@@ -35,6 +35,7 @@
                                                 <th class="text-center">Action</th>
                                                 <th class="text-center"> Validity </th>
                                                 <th class="text-center"> Name </th>
+                                                <th class="text-center"> Valid Till Date </th>
                                                 <th class="text-center"> Notes </th>
                                                 <th class="text-center"> Phone </th>
                                                 <th class="text-center"> Email </th>
@@ -43,7 +44,7 @@
                                                 
                                                 <!-- <th class="text-center"> Activation Date </th> -->
                                                 
-                                                <th class="text-center"> Valid Till Date </th>
+                                               
                                                 
                                                 
                                             </tr>
@@ -101,6 +102,7 @@
 
                                                                 <td id="validity" class="text-center"> <?php echo $row['validity']; ?> </td>
                                                                 <td id="username" class="text-left"> <?php echo $row['name']; ?> </td>
+                                                                <td id="activeTill" class="text-left"> <?php echo $row['activeTill']; ?> </td>
                                                                 <td id="remark" class="text-left"> <?php echo $row['remark']; ?> </td>
                                                                 <td id="usersphone" class="text-left"> <?php echo $row['mobile']; ?> </td>
                                                                 <td id="usersemail" class="text-left"> <?php echo $row['email']; ?> </td>
@@ -108,7 +110,7 @@
                                                                                                        
                                                                 <!-- <td id="activeAt" class="text-center"> <?php echo $row['activeAt']; ?> </td> -->
                                                                 
-                                                                <td id="activeTill" class="text-left"> <?php echo $row['activeTill']; ?> </td>
+                                                                
                                                                
                                                             </tr>
                                                             <?php
