@@ -61,7 +61,7 @@ header('Content-Type: application/json');
             $Today=date('Y-m-d');
             // add days to date
             $activeTill=Date('Y-m-d', strtotime('+8 days'));
-            $sql = "SELECT * FROM checkUser WHERE token = '$token' AND status = 0";
+            $sql = "SELECT * FROM checkUser WHERE token = '$token' AND status = 0 OR status = 3";
             $result = $conn->query($sql);
             if ($result->num_rows > 0) {
                 while($row = $result->fetch_assoc()) {

@@ -42,7 +42,7 @@ header('Content-Type: application/json');
         if(isset($hdid)){
             // $token = $_POST['token'];
             $hdId = $hdid?$hdid:"";
-            $sql = "SELECT * FROM checkUser WHERE hdId = '$hdId' AND status = 1 AND activeTill > NOW()";
+            $sql = "SELECT * FROM checkUser WHERE hdId = '$hdId' AND status > 0  AND activeTill > NOW()";
             // $sql = "SELECT * FROM checkUser WHERE token = '$token' AND hdId = '$hdId' AND status = 1 AND activeTill > NOW()";
             $result = $conn->query($sql);
             // echo $hdId; exit;
