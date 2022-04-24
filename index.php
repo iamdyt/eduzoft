@@ -7,7 +7,7 @@
 
     include './admin/dbConfig.php';
     if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true) {
-        header("Location: users.php");
+        header("Location: ./admin/users.php");
     } else {
         // header("Location: index.php");
         // exit();
